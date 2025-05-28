@@ -1,0 +1,31 @@
+
+<h2>Asignar Catequistas a un Grupo</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Grupo:</label>
+        <select name="id_grupo" class="form-control" required>
+            {% for grupo in grupos %}
+            <option value="{{ grupo.id_grupo_catequesis }}">{{ grupo.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Catequista Principal:</label>
+        <select name="id_catequista_principal" class="form-control" required>
+            {% for cp in catequistas_principales %}
+            <option value="{{ cp.id_catequista }}">{{ cp.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Catequista Ayudante:</label>
+        <select name="id_catequista_secundario" class="form-control" required>
+            {% for ca in catequistas_ayudantes %}
+            <option value="{{ ca.id_catequista }}">{{ ca.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Asignar</button>
+    <a href="{{ url_for('grupo_catequista.index') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+

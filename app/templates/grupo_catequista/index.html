@@ -1,0 +1,27 @@
+
+<h2>Asignaciones de Catequistas a Grupos</h2>
+<a href="{{ url_for('grupo_catequista.insertar') }}" class="btn btn-primary mb-3">Asignar Catequistas</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID Grupo</th>
+            <th>ID Catequista Principal</th>
+            <th>ID Catequista Ayudante</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fila in datos %}
+        <tr>
+            <td>{{ fila.id_grupo }}</td>
+            <td>{{ fila.id_catequista_principal }}</td>
+            <td>{{ fila.id_catequista_secundario }}</td>
+            <td>
+                <a href="{{ url_for('grupo_catequista.actualizar', id_grupo=fila.id_grupo) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('grupo_catequista.eliminar', id_grupo=fila.id_grupo, id_catequista=fila.id_catequista_principal) }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
