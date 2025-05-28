@@ -1,0 +1,14 @@
+<h1>Actualizar Catequizando</h1>
+<form method="post">
+    <input name="nombre" value="{{ catequizando.nombre }}" required><br>
+    <input name="apellido" value="{{ catequizando.apellido }}" required><br>
+    <input name="fecha_nacimiento" type="date" value="{{ catequizando.fecha_nacimiento }}" required><br>
+    <input name="documento_identidad" value="{{ catequizando.documento_identidad }}" required><br>
+    <input name="fecha_registro" type="date" value="{{ catequizando.fecha_registro }}" required><br>
+    <select name="bautizado">
+        <option value="S" {% if catequizando.bautizado == 'S' %}selected{% endif %}>Sí</option>
+        <option value="N" {% if catequizando.bautizado == 'N' %}selected{% endif %}>No</option>
+    </select><br>
+    <input name="id_parroquia" value="{{ catequizando.id_parroquia or '' }}"><br>
+    <button type="submit">Actualizar</button>
+</form>

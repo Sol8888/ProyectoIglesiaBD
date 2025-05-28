@@ -1,0 +1,23 @@
+<h1>Tipos de Sacramento</h1>
+<a href="{{ url_for('tipo_sacramento.insertar') }}">+ Nuevo tipo</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in tipos %}
+        <tr>
+            <td>{{ t.id_sacramento_tipo }}</td>
+            <td>{{ t.nombre }}</td>
+            <td>
+                <a href="{{ url_for('tipo_sacramento.actualizar', id=t.id_sacramento_tipo) }}">Editar</a>
+                <a href="{{ url_for('tipo_sacramento.eliminar', id=t.id_sacramento_tipo) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

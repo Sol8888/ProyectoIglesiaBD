@@ -1,0 +1,24 @@
+<h1>Lista de Ciclos Catequísticos</h1>
+<a href="{{ url_for('ciclo.insertar') }}">+ Nuevo ciclo</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th><th>Nombre</th><th>Inicio</th><th>Fin</th><th>Nivel</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in ciclos %}
+        <tr>
+            <td>{{ c.id_ciclo }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.fecha_inicio }}</td>
+            <td>{{ c.fecha_fin }}</td>
+            <td>{{ c.id_nivel }}</td>
+            <td>
+                <a href="{{ url_for('ciclo.actualizar', id=c.id_ciclo) }}">Editar</a>
+                <a href="{{ url_for('ciclo.eliminar', id=c.id_ciclo) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

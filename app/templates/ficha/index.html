@@ -1,0 +1,27 @@
+<h1>Lista de Fichas de Datos</h1>
+<a href="{{ url_for('ficha.insertar') }}">+ Nueva ficha</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th><th>Catequizando</th><th>Bautismo</th><th>Atención Especial</th>
+            <th>Observaciones</th><th>Lugar Bautismo</th><th>Fecha Bautismo</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for f in fichas %}
+        <tr>
+            <td>{{ f.id_ficha }}</td>
+            <td>{{ f.id_catequizando }}</td>
+            <td>{{ 'Sí' if f.tiene_bautismo else 'No' }}</td>
+            <td>{{ 'Sí' if f.requiere_atencion_especial else 'No' }}</td>
+            <td>{{ f.observaciones }}</td>
+            <td>{{ f.lugar_bautismo }}</td>
+            <td>{{ f.fecha_bautismo }}</td>
+            <td>
+                <a href="{{ url_for('ficha.actualizar', id=f.id_ficha) }}">Editar</a>
+                <a href="{{ url_for('ficha.eliminar', id=f.id_ficha) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

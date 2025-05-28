@@ -1,0 +1,10 @@
+<h1>Actualizar Usuario</h1>
+<form method="post">
+    <input name="nombre" value="{{ usuario.nombre }}" required><br>
+    <input name="contrasena" value="{{ usuario.contrasena }}" required><br>
+    <select name="rol">
+        <option value="A" {% if usuario.rol == 'A' %}selected{% endif %}>Administrador</option>
+        <option value="U" {% if usuario.rol == 'U' %}selected{% endif %}>Usuario</option>
+    </select><br>
+    <button type="submit">Actualizar</button>
+</form>

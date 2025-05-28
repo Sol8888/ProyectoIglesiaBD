@@ -1,0 +1,22 @@
+<h1>Actualizar Nivel Catequesis</h1>
+<form method="post">
+    <input name="orden" type="number" value="{{ nivel.orden }}" required><br>
+    <input name="nombre_nivel" value="{{ nivel.nombre_nivel }}" required><br>
+    <textarea name="descripcion" required>{{ nivel.descripcion }}</textarea><br>
+
+    <select name="id_libro">
+        <option value="">Sin libro asociado</option>
+        {% for libro in libros %}
+        <option value="{{ libro.id_libro }}" {% if nivel.id_libro == libro.id_libro %}selected{% endif %}>{{ libro.titulo }}</option>
+        {% endfor %}
+    </select><br>
+
+    <select name="id_tipo_sacramento">
+        <option value="">Sin sacramento asociado</option>
+        {% for tipo in tipos %}
+        <option value="{{ tipo.id_sacramento_tipo }}" {% if nivel.id_tipo_sacramento == tipo.id_sacramento_tipo %}selected{% endif %}>{{ tipo.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Actualizar</button>
+</form>

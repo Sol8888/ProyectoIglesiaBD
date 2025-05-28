@@ -1,0 +1,17 @@
+<h1>Insertar Parroquia</h1>
+<form method="post">
+    <input name="nombre" placeholder="Nombre" required><br>
+    <input name="direccion" placeholder="Dirección" required><br>
+    <input name="ciudad" placeholder="Ciudad" required><br>
+    <input name="telefono" placeholder="Teléfono"><br>
+    <input name="correo" placeholder="Correo electrónico"><br>
+
+    <select name="id_parroquia_principal" required>
+        <option value="">Seleccione una parroquia principal</option>
+        {% for pp in parroquias_principales %}
+            <option value="{{ pp.id_parroquia_principal }}">{{ pp.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Guardar</button>
+</form>

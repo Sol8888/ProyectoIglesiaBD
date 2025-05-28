@@ -1,0 +1,32 @@
+<h1>Actualizar Ficha de Datos</h1>
+<form method="post">
+    <label>Cédula del Catequizando:</label>
+    <select name="id_catequizando" required>
+        {% for c in catequizandos %}
+            <option value="{{ c.id_catequizando }}" {% if ficha.id_catequizando == c.id_catequizando %}selected{% endif %}>{{ c.documento_identidad }} - {{ c.nombre }} {{ c.apellido }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Tiene bautismo:</label>
+    <select name="tiene_bautismo">
+        <option value="1" {% if ficha.tiene_bautismo %}selected{% endif %}>Sí</option>
+        <option value="0" {% if not ficha.tiene_bautismo %}selected{% endif %}>No</option>
+    </select><br>
+
+    <label>Requiere atención especial:</label>
+    <select name="requiere_atencion_especial">
+        <option value="1" {% if ficha.requiere_atencion_especial %}selected{% endif %}>Sí</option>
+        <option value="0" {% if not ficha.requiere_atencion_especial %}selected{% endif %}>No</option>
+    </select><br>
+
+    <label>Observaciones:</label><br>
+    <textarea name="observaciones" rows="4" cols="40">{{ ficha.observaciones }}</textarea><br>
+
+    <label>Lugar de bautismo:</label>
+    <input name="lugar_bautismo" value="{{ ficha.lugar_bautismo }}" required><br>
+
+    <label>Fecha de bautismo:</label>
+    <input name="fecha_bautismo" type="date" value="{{ ficha.fecha_bautismo }}" required><br>
+
+    <button type="submit">Actualizar</button>
+</form>

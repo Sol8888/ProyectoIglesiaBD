@@ -1,0 +1,18 @@
+<h1>Editar Grupo</h1>
+<form method="post">
+    <input name="nombre" value="{{ grupo.nombre }}" required><br>
+
+    <select name="id_parroquia" required>
+        {% for p in parroquias %}
+        <option value="{{ p.id_parroquia }}" {% if p.id_parroquia == grupo.id_parroquia %}selected{% endif %}>{{ p.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <select name="id_ciclo" required>
+        {% for c in ciclos %}
+        <option value="{{ c.id_ciclo }}" {% if c.id_ciclo == grupo.id_ciclo %}selected{% endif %}>{{ c.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Actualizar</button>
+</form>

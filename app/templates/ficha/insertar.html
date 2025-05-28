@@ -1,0 +1,33 @@
+<h1>Registrar Ficha de Datos</h1>
+<form method="post">
+    <label>Cédula del Catequizando:</label>
+    <select name="id_catequizando" required>
+        <option value="">Seleccione un catequizando</option>
+        {% for c in catequizandos %}
+            <option value="{{ c.id_catequizando }}">{{ c.documento_identidad }} - {{ c.nombre }} {{ c.apellido }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Tiene bautismo:</label>
+    <select name="tiene_bautismo">
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+    </select><br>
+
+    <label>Requiere atención especial:</label>
+    <select name="requiere_atencion_especial">
+        <option value="1">Sí</option>
+        <option value="0">No</option>
+    </select><br>
+
+    <label>Observaciones:</label><br>
+    <textarea name="observaciones" rows="4" cols="40"></textarea><br>
+
+    <label>Lugar de bautismo:</label>
+    <input name="lugar_bautismo" required><br>
+
+    <label>Fecha de bautismo:</label>
+    <input name="fecha_bautismo" type="date" required><br>
+
+    <button type="submit">Guardar</button>
+</form>

@@ -1,0 +1,103 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parroquias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+
+        .boton-insertar {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4b0082;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .boton-insertar:hover {
+            background-color: #360065;
+        }
+
+        table {
+            margin: auto;
+            width: 90%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #e0d5f7;
+        }
+
+        .acciones a {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 2px;
+            text-decoration: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .editar {
+            background-color: #007bff;
+        }
+
+        .editar:hover {
+            background-color: #0056b3;
+        }
+
+        .eliminar {
+            background-color: #dc3545;
+        }
+
+        .eliminar:hover {
+            background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Parroquias Registradas</h1>
+    <a href="/parroquias/insertar" class="boton-insertar">+ Insertar nueva parroquia</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Nombre</th><th>Dirección</th><th>Ciudad</th><th>Teléfono</th><th>Correo</th><th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in parroquias %}
+            <tr>
+                <td>{{ p.id_parroquia_principal }}</td>
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.direccion }}</td>
+                <td>{{ p.ciudad }}</td>
+                <td>{{ p.telefono or '—' }}</td>
+                <td>{{ p.correo_electronico or '—' }}</td>
+                <td class="acciones">
+                    <a href="/parroquias/actualizar/{{ p.id_parroquia_principal }}" class="editar">Editar</a>
+                    <a href="/parroquias/eliminar/{{ p.id_parroquia_principal }}" class="eliminar">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

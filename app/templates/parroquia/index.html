@@ -1,0 +1,22 @@
+<h1>Parroquias</h1>
+<a href="/parroquia/insertar">Insertar nueva</a>
+<table>
+    <tr>
+        <th>ID</th><th>Nombre</th><th>Dirección</th><th>Ciudad</th><th>Teléfono</th><th>Correo</th><th>Principal</th><th>Acciones</th>
+    </tr>
+    {% for p in parroquias %}
+    <tr>
+        <td>{{ p.id_parroquia }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.direccion }}</td>
+        <td>{{ p.ciudad }}</td>
+        <td>{{ p.telefono }}</td>
+        <td>{{ p.correo_electronico }}</td>
+        <td>{{ p.id_parroquia_principal }}</td>
+        <td>
+            <a href="/parroquia/actualizar/{{ p.id_parroquia }}">Editar</a>
+            <a href="/parroquia/eliminar/{{ p.id_parroquia }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

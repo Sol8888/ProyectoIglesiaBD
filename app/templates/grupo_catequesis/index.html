@@ -1,0 +1,23 @@
+<h1>Grupos Catequéticos</h1>
+<a href="{{ url_for('grupo.insertar') }}">+ Nuevo Grupo</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th><th>Nombre</th><th>ID Parroquia</th><th>ID Ciclo</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for g in grupos %}
+        <tr>
+            <td>{{ g.id_grupo_catequesis }}</td>
+            <td>{{ g.nombre }}</td>
+            <td>{{ g.id_parroquia }}</td>
+            <td>{{ g.id_ciclo }}</td>
+            <td>
+                <a href="{{ url_for('grupo.actualizar', id=g.id_grupo_catequesis) }}">Editar</a>
+                <a href="{{ url_for('grupo.eliminar', id=g.id_grupo_catequesis) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

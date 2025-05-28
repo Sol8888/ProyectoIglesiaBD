@@ -1,0 +1,23 @@
+<h1>Lista de Catequistas</h1>
+<a href="{{ url_for('catequista.insertar') }}">+ Nuevo catequista</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Correo</th><th>Teléfono</th><th>Rol</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+        {% for c in catequistas %}
+        <tr>
+            <td>{{ c.id_catequista }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.apellido }}</td>
+            <td>{{ c.correo_electrico }}</td>
+            <td>{{ c.telefono }}</td>
+            <td>{{ 'Principal' if c.rol == 'P' else 'Ayudante' }}</td>
+            <td>
+                <a href="{{ url_for('catequista.actualizar', id=c.id_catequista) }}">Editar</a>
+                <a href="{{ url_for('catequista.eliminar', id=c.id_catequista) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

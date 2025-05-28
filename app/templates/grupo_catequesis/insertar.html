@@ -1,0 +1,20 @@
+<h1>Crear Nuevo Grupo</h1>
+<form method="post">
+    <input name="nombre" placeholder="Nombre" required><br>
+
+    <select name="id_parroquia" required>
+        <option value="">Seleccione Parroquia</option>
+        {% for p in parroquias %}
+        <option value="{{ p.id_parroquia }}">{{ p.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <select name="id_ciclo" required>
+        <option value="">Seleccione Ciclo</option>
+        {% for c in ciclos %}
+        <option value="{{ c.id_ciclo }}">{{ c.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Guardar</button>
+</form>

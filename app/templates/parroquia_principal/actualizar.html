@@ -1,0 +1,17 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Parroquia</title>
+</head>
+<body>
+    <h1>Actualizar Parroquia</h1>
+    <form method="post">
+        <input name="nombre" value="{{ parroquia.nombre }}" required><br>
+        <input name="direccion" value="{{ parroquia.direccion }}" required><br>
+        <input name="ciudad" value="{{ parroquia.ciudad }}" required><br>
+        <input name="telefono" value="{{ parroquia.telefono }}"><br>
+        <input name="correo" value="{{ parroquia.correo_electronico }}"><br>
+        <button type="submit">Actualizar</button>
+    </form>
+</body>
+</html>

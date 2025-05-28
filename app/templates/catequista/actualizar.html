@@ -1,0 +1,12 @@
+<h1>Actualizar Catequista</h1>
+<form method="post">
+    <input name="nombre" value="{{ catequista.nombre }}" required><br>
+    <input name="apellido" value="{{ catequista.apellido }}" required><br>
+    <input name="correo" value="{{ catequista.correo_electrico }}" required><br>
+    <input name="telefono" value="{{ catequista.telefono }}" required><br>
+    <select name="rol">
+        <option value="P" {% if catequista.rol == 'P' %}selected{% endif %}>Principal</option>
+        <option value="A" {% if catequista.rol == 'A' %}selected{% endif %}>Ayudante</option>
+    </select><br>
+    <button type="submit">Actualizar</button>
+</form>

@@ -1,0 +1,24 @@
+<h1>Listado de Libros</h1>
+<a href="{{ url_for('libro.insertar') }}">+ Nuevo libro</a>
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th><th>Título</th><th>Autor</th><th>Editorial</th><th>Año</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for l in libros %}
+        <tr>
+            <td>{{ l.id_libro }}</td>
+            <td>{{ l.titulo }}</td>
+            <td>{{ l.autor }}</td>
+            <td>{{ l.editorial }}</td>
+            <td>{{ l.anio_edicion }}</td>
+            <td>
+                <a href="{{ url_for('libro.actualizar', id=l.id_libro) }}">Editar</a>
+                <a href="{{ url_for('libro.eliminar', id=l.id_libro) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

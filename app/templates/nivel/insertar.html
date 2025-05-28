@@ -1,0 +1,22 @@
+<h1>Registrar Nivel Catequesis</h1>
+<form method="post">
+    <input name="orden" type="number" placeholder="Orden" required><br>
+    <input name="nombre_nivel" placeholder="Nombre del Nivel" required><br>
+    <textarea name="descripcion" placeholder="Descripción" required></textarea><br>
+
+    <select name="id_libro">
+        <option value="">Sin libro asociado</option>
+        {% for libro in libros %}
+        <option value="{{ libro.id_libro }}">{{ libro.titulo }}</option>
+        {% endfor %}
+    </select><br>
+
+    <select name="id_tipo_sacramento">
+        <option value="">Sin sacramento asociado</option>
+        {% for tipo in tipos %}
+        <option value="{{ tipo.id_sacramento_tipo }}">{{ tipo.nombre }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Guardar</button>
+</form>

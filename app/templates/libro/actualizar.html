@@ -1,0 +1,8 @@
+<h1>Actualizar Libro</h1>
+<form method="post">
+    <input name="titulo" value="{{ libro.titulo }}" required><br>
+    <input name="autor" value="{{ libro.autor }}" required><br>
+    <input name="editorial" value="{{ libro.editorial }}" required><br>
+    <input name="anio_edicion" type="number" value="{{ libro.anio_edicion }}" required><br>
+    <button type="submit">Actualizar</button>
+</form>
