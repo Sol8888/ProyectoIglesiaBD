@@ -12,6 +12,7 @@ from app.routes.nivelcatequesis_routes import nivel_bp
 from app.routes.ciclo_catequistico_routes import ciclo_bp
 from app.routes.grupo_catequesis_routes import grupo_bp
 from app.routes.grupo_catequista_routes import grupo_catequista_bp
+from app.routes.persona_routes import persona_bp
 import os
 
 app = Flask(__name__, template_folder=os.path.join('app', 'templates'))
@@ -31,7 +32,7 @@ app.register_blueprint(nivel_bp)
 app.register_blueprint(ciclo_bp)
 app.register_blueprint(grupo_bp)
 app.register_blueprint(grupo_catequista_bp)
-
+app.register_blueprint(persona_bp)
 
 @app.route('/home')
 def home():
