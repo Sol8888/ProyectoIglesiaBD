@@ -1,0 +1,56 @@
+<h2>Nueva Inscripción</h2>
+
+<form method="POST">
+    <div class="form-group">
+        <label for="observaciones">Observaciones</label>
+        <textarea name="observaciones" id="observaciones" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="estado_pago">Estado de Pago</label>
+        <select name="estado_pago" id="estado_pago" class="form-control" required>
+            <option value="P">Pendiente</option>
+            <option value="C">Cancelado</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="fecha_inscripcion">Fecha de Inscripción</label>
+        <input type="date" name="fecha_inscripcion" id="fecha_inscripcion" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="id_catequizando">ID Catequizando</label>
+        <select name="id_catequizando" id="id_catequizando" class="form-control" required>
+            {% for cat in catequizandos %}
+            <option value="{{ cat.id_catequizando }}">{{ cat.id_catequizando }} - {{ cat.nombre }} {{ cat.apellido }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+    <label for="registrado_por">Inscrito por</label>
+    <select class="form-control" id="registrado_por" name="registrado_por" required>
+        <option value="">Seleccione un catequista</option>
+        {% for catequista in catequistas %}
+            <option value="{{ catequista.id_catequista }}">
+                {{ catequista.nombre }}
+            </option>
+        {% endfor %}
+    </select>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="id_grupo_catequesis">ID Grupo Catequesis</label>
+        <select name="id_grupo_catequesis" id="id_grupo_catequesis" class="form-control" required>
+            {% for grupo in grupos %}
+            <option value="{{ grupo.id_grupo_catequesis }}">{{ grupo.id_grupo_catequesis }} - {{ grupo.nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+    <a href="{{ url_for('inscripcion.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+</form>

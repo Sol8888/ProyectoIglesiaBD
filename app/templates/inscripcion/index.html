@@ -1,0 +1,35 @@
+<h2>Listado de Inscripciones</h2>
+
+<a href="{{ url_for('inscripcion.insertar') }}" class="btn btn-primary mb-3">Nueva Inscripción</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Observaciones</th>
+            <th>Estado Pago</th>
+            <th>Fecha Inscripción</th>
+            <th>ID Catequizando</th>
+            <th>Registrado por</th>
+            <th>ID Grupo Catequesis</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ins in inscripciones %}
+        <tr>
+            <td>{{ ins.id_inscripcion }}</td>
+            <td>{{ ins.observaciones or '' }}</td>
+            <td>{{ ins.estado_pago }}</td>
+            <td>{{ ins.fecha_inscripcion }}</td>
+            <td>{{ ins.id_catequizando }}</td>
+            <td>{{ ins.registrado_por or '' }}</td>
+            <td>{{ ins.id_grupo_catequesis }}</td>
+            <td>
+                <a href="{{ url_for('inscripcion.actualizar', id=ins.id_inscripcion) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('inscripcion.eliminar', id=ins.id_inscripcion) }}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
