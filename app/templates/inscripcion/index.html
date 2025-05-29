@@ -17,24 +17,23 @@
       padding: 40px 20px;
       font-family: 'Poppins', sans-serif;
       background: 
-      linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 245, 250, 0.95)),
-      url('https://wallpapers.com/images/featured/pink-aesthetic-tumblr-laptop-yb2mef7h48w9j760.jpg') no-repeat center center fixed;
+        linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 245, 250, 0.95)),
+        url('https://wallpapers.com/images/featured/pink-aesthetic-tumblr-laptop-yb2mef7h48w9j760.jpg') no-repeat center center fixed;
       background-size: cover;
       text-align: center;
       min-height: 100vh;
     }
 
-    h2 {
+    h1 {
       color: #7b1fa2;
       font-size: 32px;
       margin-bottom: 30px;
       text-shadow: 0 1px 3px rgba(123, 31, 162, 0.6);
     }
 
-    .boton-insertar {
+    .boton-insertar, .boton-regreso {
       display: inline-block;
       padding: 12px 24px;
-      background-color: #8e44ad;
       color: white;
       text-decoration: none;
       font-weight: 600;
@@ -42,13 +41,21 @@
       margin-bottom: 30px;
       transition: background 0.3s, box-shadow 0.3s;
       box-shadow: 0 4px 10px rgba(142, 68, 173, 0.7);
+      margin-right: 15px;
     }
 
-    .boton-insertar:hover {
+    .boton-insertar {
+      background-color: #8e44ad;
+    }
+
+    .boton-regreso {
+      background-color: #bab3bd;
+    }
+
+    .boton-insertar:hover, .boton-regreso:hover {
       background-color: #d81b60;
       box-shadow: 0 5px 15px rgba(216, 27, 96, 0.8);
     }
-    
 
     table {
       margin: auto;
@@ -112,11 +119,11 @@
         font-size: 13px;
       }
 
-      h2 {
+      h1 {
         font-size: 24px;
       }
 
-      .boton-insertar {
+      .boton-insertar, .boton-regreso {
         padding: 10px 20px;
         font-size: 14px;
       }
@@ -128,8 +135,9 @@
   </style>
 </head>
 <body>
-  <h2>Listado de Inscripciones</h2>
+  <h1>Listado de Inscripciones</h1>
 
+  <a href="{{ url_for('home') }}" class="boton-regreso">← Regresar</a>
   <a href="{{ url_for('inscripcion.insertar') }}" class="boton-insertar">+ Nueva Inscripción</a>
 
   <table>
@@ -160,8 +168,13 @@
           <a href="{{ url_for('inscripcion.eliminar', id=ins.id_inscripcion) }}" class="eliminar">Eliminar</a>
         </td>
       </tr>
+      {% else %}
+      <tr>
+        <td colspan="8">No hay inscripciones registradas.</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>
 </body>
 </html>
+

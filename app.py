@@ -14,6 +14,7 @@ from app.routes.grupo_catequesis_routes import grupo_bp
 from app.routes.grupo_catequista_routes import grupo_catequista_bp
 from app.routes.persona_routes import persona_bp
 from app.routes.inscripcion_routes import inscripcion_bp
+from app.routes.certificado_routes import certificado_bp
 import os
 
 app = Flask(__name__, template_folder=os.path.join('app', 'templates'))
@@ -36,6 +37,7 @@ app.register_blueprint(grupo_bp)
 app.register_blueprint(grupo_catequista_bp)
 app.register_blueprint(persona_bp)
 app.register_blueprint(inscripcion_bp)
+app.register_blueprint(certificado_bp)
 
 @app.route('/home')
 def home():

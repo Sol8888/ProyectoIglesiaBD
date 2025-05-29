@@ -110,6 +110,7 @@
       <button onclick="nextStep(12)" disabled>12. Unir Catequistas a un Grupo</button>
       <button onclick="nextStep(13)" disabled>13. Crear Inscripciones</button>
       <button onclick="nextStep(14)" disabled>14. Crear Padres de Familia y Padrinos</button>
+      <button onclick="nextStep(15)" disabled>15. Generar un certificado</button>
     </div>
   </div>
 
@@ -131,7 +132,8 @@
         from.includes("/grupos/") ||
         from.includes("/grupos_catequistas/") ||
         from.includes("/inscripciones/") ||
-        from.includes("/personas/")
+        from.includes("/personas/") ||
+        from.includes("/certificados/")
       );
   
       // Si no es interno, reinicia el progreso
@@ -161,7 +163,7 @@
       const routes = [
         "/parroquias/", "/parroquia/", "/usuarios/", "/catequistas/", "/catequizandos/",
         "/fichas/", "/libros/", "/tipos_sacramento/", "/niveles/", "/ciclos/",
-        "/grupos/", "/grupos_catequistas/", "/inscripciones/", "/personas/"
+        "/grupos/", "/grupos_catequistas/", "/inscripciones/", "/personas/" , "/certificados/"
       ];
       window.location.href = routes[currentStep - 1];
     }
