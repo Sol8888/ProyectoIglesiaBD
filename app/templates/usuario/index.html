@@ -31,10 +31,9 @@
       text-shadow: 0 1px 3px rgba(123, 31, 162, 0.6);
     }
 
-    .boton-insertar {
+    .boton-insertar, .boton-regreso {
       display: inline-block;
       padding: 12px 24px;
-      background-color: #8e44ad;
       color: white;
       text-decoration: none;
       font-weight: 600;
@@ -42,12 +41,19 @@
       margin-bottom: 30px;
       transition: background 0.3s, box-shadow 0.3s;
       box-shadow: 0 4px 10px rgba(142, 68, 173, 0.7);
+      margin-right: 15px;
     }
-
-    .boton-insertar:hover {
-      background-color: #d81b60;
+    .boton-insertar {
+      background-color: #8e44ad; /* morado */
+    }
+    .boton-regreso {
+      background-color: #bab3bd; /* morado */
+    }
+    .boton-insertar:hover, .boton-regreso:hover {
+      background-color: #d81b60; /* rosa fuerte */
       box-shadow: 0 5px 15px rgba(216, 27, 96, 0.8);
     }
+
 
     table {
       margin: auto;
@@ -115,7 +121,7 @@
         font-size: 24px;
       }
 
-      .boton-insertar {
+      .boton-insertar, .boton-regreso {
         padding: 10px 20px;
         font-size: 14px;
       }
@@ -129,7 +135,7 @@
 </head>
 <body>
   <h1>Usuarios</h1>
-
+  <a href="{{ url_for('home') }}" class="boton-regreso">← Regresar</a>
   <a href="{{ url_for('usuario.insertar') }}" class="boton-insertar">+ Crear nuevo usuario</a>
 
   <table>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Parroquias Registradas</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -47,20 +47,13 @@
     .boton-insertar {
       background-color: #8e44ad; /* morado */
     }
+    .boton-regreso {
+      background-color: #bab3bd; /* morado */
+    }
 
-    .boton-insertar:hover {
+    .boton-insertar:hover, .boton-regreso:hover {
       background-color: #d81b60; /* rosa fuerte */
       box-shadow: 0 5px 15px rgba(216, 27, 96, 0.8);
-    }
-
-    .boton-regreso {
-      background-color: #777;
-      box-shadow: 0 4px 10px rgba(119, 119, 119, 0.7);
-    }
-
-    .boton-regreso:hover {
-      background-color: #555;
-      box-shadow: 0 5px 15px rgba(85, 85, 85, 0.8);
     }
 
     table {
@@ -143,7 +136,7 @@
 <body>
   <h1>Parroquias Registradas</h1>
 
-  <!-- Botón de regreso -->
+  <!-- Botones -->
   <a href="{{ url_for('home') }}" class="boton-regreso">← Regresar</a>
   <a href="/parroquias/insertar" class="boton-insertar">+ Insertar nueva parroquia</a>
 
@@ -156,18 +149,20 @@
         <th>Ciudad</th>
         <th>Teléfono</th>
         <th>Correo</th>
+        <th>Principal</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       {% for p in parroquias %}
       <tr>
-        <td>{{ p.id_parroquia_principal }}</td>
+        <td>{{ p.id_parroquia }}</td>
         <td>{{ p.nombre }}</td>
         <td>{{ p.direccion }}</td>
         <td>{{ p.ciudad }}</td>
         <td>{{ p.telefono or '—' }}</td>
         <td>{{ p.correo_electronico or '—' }}</td>
+        <td>{{ p.id_parroquia_principal or '—' }}</td>
         <td class="acciones">
           <a href="/parroquias/actualizar/{{ p.id_parroquia_principal }}" class="editar">Editar</a>
           <a href="/parroquias/eliminar/{{ p.id_parroquia_principal }}" class="eliminar">Eliminar</a>
@@ -178,4 +173,3 @@
   </table>
 </body>
 </html>
-

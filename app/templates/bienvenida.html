@@ -17,9 +17,8 @@
       padding: 0;
       height: 100vh;
       background: 
-        
-      linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 245, 250, 0.95)),
-      url('https://wallpapers.com/images/featured/pink-aesthetic-tumblr-laptop-yb2mef7h48w9j760.jpg') no-repeat center center fixed;
+        linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 245, 250, 0.95)),
+        url('https://wallpapers.com/images/featured/pink-aesthetic-tumblr-laptop-yb2mef7h48w9j760.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Poppins', sans-serif;
       display: flex;
@@ -92,7 +91,6 @@
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="title">Bienvenido<br>al Sistema de Catequesis</div>
     <div class="subtitle">Sigue los pasos en orden. Cada paso desbloquea el siguiente.</div>
@@ -116,28 +114,59 @@
   </div>
 
   <script>
+    // Detecta si llegaste desde fuera (no desde una de las rutas del sistema)
+    document.addEventListener("DOMContentLoaded", () => {
+      const from = document.referrer;
+      const isInternal = from.includes(window.location.origin) && (
+        from.includes("/parroquias/") ||
+        from.includes("/parroquia/") ||
+        from.includes("/usuarios/") ||
+        from.includes("/catequistas/") ||
+        from.includes("/catequizandos/") ||
+        from.includes("/fichas/") ||
+        from.includes("/libros/") ||
+        from.includes("/tipos_sacramento/") ||
+        from.includes("/niveles/") ||
+        from.includes("/ciclos/") ||
+        from.includes("/grupos/") ||
+        from.includes("/grupos_catequistas/") ||
+        from.includes("/inscripciones/") ||
+        from.includes("/personas/")
+      );
+  
+      // Si no es interno, reinicia el progreso
+      if (!isInternal) {
+        localStorage.setItem("maxStep", "1");
+      }
+  
+      // Habilitar los pasos según el progreso
+      const maxStep = parseInt(localStorage.getItem("maxStep") || "1");
+      const buttons = document.querySelectorAll('.links button');
+  
+      for (let i = 0; i < maxStep; i++) {
+        buttons[i].disabled = false;
+      }
+    });
+  
     function nextStep(currentStep) {
       const buttons = document.querySelectorAll('.links button');
-      const currentButton = buttons[currentStep - 1];
-      const nextButton = buttons[currentStep];
-
-      // Simula ir a la página correspondiente
+  
+      // Actualiza el máximo paso alcanzado en localStorage
+      let maxStep = parseInt(localStorage.getItem("maxStep") || "1");
+      if (currentStep + 1 > maxStep) {
+        localStorage.setItem("maxStep", currentStep + 1);
+      }
+  
+      // Redirige a la página correspondiente
       const routes = [
         "/parroquias/", "/parroquia/", "/usuarios/", "/catequistas/", "/catequizandos/",
         "/fichas/", "/libros/", "/tipos_sacramento/", "/niveles/", "/ciclos/",
         "/grupos/", "/grupos_catequistas/", "/inscripciones/", "/personas/"
       ];
       window.location.href = routes[currentStep - 1];
-
-      // Habilita el siguiente botón (solo si existe)
-      if (nextButton) {
-        nextButton.disabled = false;
-      }
-
-      // Opcional: deshabilita el actual para prevenir repetir
-      currentButton.disabled = true;
     }
   </script>
-
+  
+  
 </body>
 </html>
