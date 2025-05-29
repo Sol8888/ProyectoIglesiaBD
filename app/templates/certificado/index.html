@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+  <h1>Bienvenido {{ usuario }}</h1>
+  <p>Esta es tu página principal.</p>
+{% endblock %}
+
+
+<!-- templates/certificado/index.html -->
+<h1>Listado de Certificados</h1>
+<a href="{{ url_for('certificado.insertar') }}">Nuevo Certificado</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Estado</th>
+            <th>Fecha Emisión</th>
+            <th>Nombre del Niño</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cert in certificados %}
+        <tr>
+            <td>{{ 'Activo' if cert.estado == 'A' else 'No activo' }}</td>
+            <td>{{ cert.fecha_emision }}</td>
+            <td>{{ cert.nombre_ninio }}</td>
+            <td>
+                <a href="{{ url_for('certificado.actualizar', id=cert.id_certificado) }}">Editar</a> |
+                <a href="{{ url_for('certificado.eliminar', id=cert.id_certificado) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

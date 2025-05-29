@@ -1,3 +1,13 @@
+
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+  <h1>Bienvenido {{ usuario }}</h1>
+  <p>Esta es tu página principal.</p>
+{% endblock %}
+
 <h1>Tipos de Sacramento</h1>
 <a href="{{ url_for('tipo_sacramento.insertar') }}">+ Nuevo tipo</a>
 <table border="1" cellpadding="6">

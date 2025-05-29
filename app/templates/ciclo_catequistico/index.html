@@ -1,3 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+  <h1>Bienvenido {{ usuario }}</h1>
+  <p>Esta es tu página principal.</p>
+{% endblock %}
+
 <h1>Lista de Ciclos Catequísticos</h1>
 <a href="{{ url_for('ciclo.insertar') }}">+ Nuevo ciclo</a>
 <table border="1">
