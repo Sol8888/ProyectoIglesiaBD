@@ -17,6 +17,7 @@ from app.routes.inscripcion_routes import inscripcion_bp
 import os
 
 app = Flask(__name__, template_folder=os.path.join('app', 'templates'))
+app = Flask(__name__, static_folder="static", template_folder=os.path.join("app", "templates"))
 app.secret_key = 'clave-super-secreta'
 
 # Blueprints

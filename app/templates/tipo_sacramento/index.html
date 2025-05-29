@@ -1,23 +1,121 @@
-<h1>Tipos de Sacramento</h1>
-<a href="{{ url_for('tipo_sacramento.insertar') }}">+ Nuevo tipo</a>
-<table border="1" cellpadding="6">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tipos de Sacramento</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: 
+        linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 245, 250, 0.95)),
+        url('https://wallpapers.com/images/featured/pink-aesthetic-tumblr-laptop-yb2mef7h48w9j760.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #6a1b9a;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 0 auto 20px;
+      background-color: #8e44ad;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background-color: #732d91;
+    }
+
+    table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f3e5f5;
+      color: #4a148c;
+    }
+
+    td a {
+      color: #ad1457;
+      font-weight: 600;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      a {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tipos de Sacramento</h1>
+  <div style="text-align:center;">
+    <a href="{{ url_for('tipo_sacramento.insertar') }}">+ Nuevo tipo</a>
+  </div>
+  <table>
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Acciones</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
-        {% for t in tipos %}
-        <tr>
-            <td>{{ t.id_sacramento_tipo }}</td>
-            <td>{{ t.nombre }}</td>
-            <td>
-                <a href="{{ url_for('tipo_sacramento.actualizar', id=t.id_sacramento_tipo) }}">Editar</a>
-                <a href="{{ url_for('tipo_sacramento.eliminar', id=t.id_sacramento_tipo) }}">Eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
+      {% for t in tipos %}
+      <tr>
+        <td>{{ t.id_sacramento_tipo }}</td>
+        <td>{{ t.nombre }}</td>
+        <td>
+          <a href="{{ url_for('tipo_sacramento.actualizar', id=t.id_sacramento_tipo) }}">Editar</a>
+          <a href="{{ url_for('tipo_sacramento.eliminar', id=t.id_sacramento_tipo) }}">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
+</body>
+</html>
