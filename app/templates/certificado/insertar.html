@@ -1,19 +1,15 @@
-<!-- templates/certificado/insertar.html -->
 <h1>Nuevo Certificado</h1>
 <form method="POST">
-    <label for="estado">Estado:</label>
-    <select name="estado" required>
-        <option value="A">Activo</option>
-        <option value="N">No activo</option>
-    </select><br><br>
+    <label for="contenido">Contenido:</label>
+    <input type="text" name="contenido" required><br><br>
 
     <label for="fecha_emision">Fecha de Emisión:</label>
     <input type="date" name="fecha_emision" required><br><br>
 
-    <label for="id_inscripcion">Nombre del Niño:</label>
+    <label for="id_inscripcion">ID de Inscripción:</label>
     <select name="id_inscripcion" required>
         {% for insc in inscripciones %}
-            <option value="{{ insc.id_inscripcion }}">{{ insc.nombre_ninio }}</option>
+            <option value="{{ insc.id_inscripcion }}">{{ insc.id_inscripcion }}</option>
         {% endfor %}
     </select><br><br>
 

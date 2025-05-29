@@ -1,20 +1,16 @@
-<!-- templates/certificado/actualizar.html -->
-<h1>Editar Certificado</h1>
+<h1>Actualizar Certificado</h1>
 <form method="POST">
-    <label for="estado">Estado:</label>
-    <select name="estado" required>
-        <option value="A" {% if certificado.estado == 'A' %}selected{% endif %}>Activo</option>
-        <option value="N" {% if certificado.estado == 'N' %}selected{% endif %}>No activo</option>
-    </select><br><br>
+    <label for="contenido">Contenido:</label>
+    <input type="text" name="contenido" value="{{ certificado.contenido }}" required><br><br>
 
     <label for="fecha_emision">Fecha de Emisión:</label>
     <input type="date" name="fecha_emision" value="{{ certificado.fecha_emision }}" required><br><br>
 
-    <label for="id_inscripcion">Nombre del Niño:</label>
+    <label for="id_inscripcion">ID de Inscripción:</label>
     <select name="id_inscripcion" required>
         {% for insc in inscripciones %}
             <option value="{{ insc.id_inscripcion }}" {% if insc.id_inscripcion == certificado.id_inscripcion %}selected{% endif %}>
-                {{ insc.nombre_ninio }}
+                {{ insc.id_inscripcion }}
             </option>
         {% endfor %}
     </select><br><br>
