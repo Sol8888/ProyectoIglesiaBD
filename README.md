@@ -28,7 +28,8 @@ Presiona S (o Y) para confirmar.
 Ahora intenta activar de nuevo:
 
 .\venv\Scripts\Activate.ps1
-4️⃣ Instala Flask
+
+## 4️⃣ Instala Flask
 
 pip install flask
 
