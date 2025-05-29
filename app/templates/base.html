@@ -1,0 +1,19 @@
+<!-- app/templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Mi App{% endblock %}</title>
+</head>
+<body>
+   {% if session.get('usuario') and session.get('rol') %}
+  {% if session['rol'] == 'admin' %}
+    <a href="{{ url_for('home') }}"><button>Volver al inicio</button></a>
+  {% else %}
+    <a href="{{ url_for('bienvenida_general') }}"><button>Volver al inicio</button></a>
+  {% endif %}
+{% endif %}
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>
