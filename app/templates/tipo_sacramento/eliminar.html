@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+      * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 40px 20px;
@@ -93,6 +97,10 @@
 <body>
   <h1>¿Estás seguro que deseas eliminar este tipo de sacramento?</h1>
   <form method="post">
-    <button type="submit">Eliminar</button>
-    <a hre
+    <button type="submit">Sí, eliminar</button>
+    <a href="{{ url_for('parroquia.index') }}">Cancelar</a>
+  </form>
+</body>
+</html>
+
 

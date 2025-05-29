@@ -26,16 +26,15 @@
     }
 
     h1 {
-      color: #7b1fa2;
+      color: #7b1fa2; /* morado fuerte */
       font-size: 32px;
       margin-bottom: 30px;
       text-shadow: 0 1px 3px rgba(123, 31, 162, 0.6);
     }
 
-    .boton-insertar {
+    .boton-insertar, .boton-regreso {
       display: inline-block;
       padding: 12px 24px;
-      background-color: #8e44ad;
       color: white;
       text-decoration: none;
       font-weight: 600;
@@ -43,10 +42,18 @@
       margin-bottom: 30px;
       transition: background 0.3s, box-shadow 0.3s;
       box-shadow: 0 4px 10px rgba(142, 68, 173, 0.7);
+      margin-right: 15px;
     }
 
-    .boton-insertar:hover {
-      background-color: #d81b60;
+    .boton-insertar {
+      background-color: #8e44ad; /* morado */
+    }
+    .boton-regreso {
+      background-color: #bab3bd; /* morado */
+    }
+
+    .boton-insertar:hover, .boton-regreso:hover {
+      background-color: #d81b60; /* rosa fuerte */
       box-shadow: 0 5px 15px rgba(216, 27, 96, 0.8);
     }
 
@@ -62,13 +69,13 @@
 
     th, td {
       padding: 14px 12px;
-      border: 1px solid #e1bee7;
+      border: 1px solid #e1bee7; /* morado muy claro */
       font-size: 15px;
     }
 
     th {
-      background-color: #f3e5f5;
-      color: #7b1fa2;
+      background-color: #f3e5f5; /* morado pastel */
+      color: #7b1fa2; /* morado fuerte */
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -88,22 +95,22 @@
     }
 
     .editar {
-      background-color: #8e44ad;
+      background-color: #8e44ad; /* morado */
       box-shadow: 0 3px 8px rgba(142, 68, 173, 0.6);
     }
 
     .editar:hover {
-      background-color: #6a1b9a;
+      background-color: #6a1b9a; /* morado oscuro */
       box-shadow: 0 4px 14px rgba(106, 27, 154, 0.8);
     }
 
     .eliminar {
-      background-color: #d81b60;
+      background-color: #d81b60; /* rosa fuerte */
       box-shadow: 0 3px 8px rgba(216, 27, 96, 0.6);
     }
 
     .eliminar:hover {
-      background-color: #ad1457;
+      background-color: #ad1457; /* rosa oscuro */
       box-shadow: 0 4px 14px rgba(173, 20, 87, 0.8);
     }
 
@@ -116,7 +123,7 @@
         font-size: 24px;
       }
 
-      .boton-insertar {
+      .boton-insertar, .boton-regreso {
         padding: 10px 20px;
         font-size: 14px;
       }
@@ -129,7 +136,7 @@
 </head>
 <body>
   <h1>Grupos Catequéticos</h1>
-
+  <a href="{{ url_for('home') }}" class="boton-regreso">← Regresar</a>
   <a href="{{ url_for('grupo.insertar') }}" class="boton-insertar">+ Nuevo Grupo</a>
 
   <table>
