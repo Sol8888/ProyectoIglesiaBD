@@ -38,11 +38,7 @@ pip install flask
 
 ### 1️⃣ Abre la base de datos creada
 
-Dentro de la base de datos se deben crear los primeros dos usuarios
-Para ello en SQL Managment Studio ingresa a la base de datos, click derecho en usuarios dentro de tablas y seleccionar los primeros 200.
-Se deben crear usuarios con dos roles:
-- A : Administrador
-- U : Usuario
+Dentro de la base de datos se deben crear el usuario administrador con el rol A
 
 ### 2️⃣ Config Json
 
