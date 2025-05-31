@@ -38,16 +38,8 @@ pip install flask
 
 ### 1️⃣ Abre la base de datos creada
 
-Dentro de la base de datos se deben crear el usuario administrador con el rol A
+Dentro de la base de datos se debe crear el usuario administrador con el rol A
 
 ### 2️⃣ Config Json
 
-Dentro del archivo config.json se debe colocar:
-
-{
-  "name_server": "nombre de tu servidor", //Importante colocar el de tu servidor actual 
-  "database": "SistemaCatequesisQuito",
-  "username": "CVCGrupo1",
-  "password": "CVCGrupo1",
-  "controlador_odbc": "SQL Server"
-}
+Dentro del archivo config.json se debe colocar el nombre de tu servidor. 
